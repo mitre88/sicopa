@@ -1,0 +1,121 @@
+/* 
+  Localizable.strings (Spanish)
+  sicopa
+  
+  Test de IQ Profesional - Matrices Progresivas de Raven
+*/
+
+// MARK: - General
+"app_name" = "Test de IQ Profesional";
+"app_subtitle" = "Matrices Progresivas de Raven";
+"loading" = "Cargando...";
+"error" = "Error";
+"cancel" = "Cancelar";
+"ok" = "Aceptar";
+"close" = "Cerrar";
+"continue" = "Continuar";
+"start" = "Comenzar";
+
+// MARK: - Welcome Screen
+"welcome_title" = "Test de IQ Profesional";
+"welcome_subtitle" = "Matrices Progresivas de Raven";
+"welcome_description" = "Evalúa tu razonamiento abstracto con 20 preguntas profesionales diseñadas para medir tu coeficiente intelectual";
+"welcome_button" = "Comenzar Test";
+"about_raven" = "¿Qué son las Matrices de Raven?";
+
+// MARK: - Test Interface
+"question_counter" = "Pregunta %d de %d";
+"time_elapsed" = "Tiempo transcurrido";
+"confirm_answer" = "Confirmar Respuesta";
+"select_answer" = "Selecciona la respuesta correcta:";
+"option_a" = "Opción A";
+"option_b" = "Opción B";
+"option_c" = "Opción C";
+"option_d" = "Opción D";
+
+// MARK: - Confirmation Dialog
+"confirm_title" = "¿Confirmar respuesta?";
+"confirm_message" = "¿Estás seguro de tu respuesta? No podrás cambiarla después.";
+"confirm_button" = "Confirmar";
+
+// MARK: - Test Results
+"test_completed" = "¡Test Completado!";
+"test_completed_subtitle" = "Has finalizado las 20 preguntas del test";
+"your_iq" = "Tu Coeficiente Intelectual";
+"detailed_stats" = "Estadísticas Detalladas";
+"performance_analysis" = "Análisis de Rendimiento";
+"correct_answers" = "Aciertos";
+"total_time" = "Tiempo Total";
+"errors" = "Errores";
+"date" = "Fecha";
+"accuracy" = "% correcto";
+"incorrect_questions" = "Preguntas incorrectas";
+"average_time_per_question" = "Tiempo promedio por pregunta";
+
+// MARK: - Performance Levels
+"performance_very_superior" = "Muy Superior";
+"performance_superior" = "Superior";
+"performance_high_average" = "Promedio Alto";
+"performance_average" = "Promedio";
+"performance_low_average" = "Promedio Bajo";
+"performance_borderline" = "Fronterizo";
+"performance_below_average" = "Por Debajo del Promedio";
+
+// MARK: - Actions
+"restart_test" = "Hacer Test de Nuevo";
+"exit_test" = "Salir";
+"show_details" = "Ver Detalles";
+"hide_details" = "Ocultar";
+
+// MARK: - Question Categories
+"category_sequences" = "Secuencias";
+"category_patterns" = "Patrones";
+"category_rotation" = "Rotación";
+"category_matrix" = "Matrices";
+"category_progression" = "Progresión";
+"category_combination" = "Combinación";
+"category_reflection" = "Reflexión";
+"category_logic" = "Lógica";
+
+// MARK: - Difficulty Levels
+"difficulty_basic" = "Básico";
+"difficulty_intermediate" = "Intermedio";
+"difficulty_advanced" = "Avanzado";
+"difficulty_expert" = "Experto";
+
+// MARK: - Features
+"feature_no_time_limit" = "Sin Límite";
+"feature_time" = "Tiempo";
+"feature_20_questions" = "20 Preguntas";
+"feature_professional" = "Profesionales";
+"feature_estimated_iq" = "IQ Estimado";
+"feature_result" = "Resultado";
+
+// MARK: - About Raven Test
+"about_title" = "¿Qué son las Matrices Progresivas de Raven?";
+"about_description" = "Las Matrices Progresivas de Raven son un test de inteligencia no verbal que evalúa la capacidad de razonamiento abstracto y la percepción de patrones.";
+"how_it_works" = "¿Cómo funciona?";
+"pattern_types" = "Tipos de Patrones";
+
+// MARK: - Instructions
+"instruction_1" = "Cada pregunta presenta una matriz de figuras con un elemento faltante";
+"instruction_2" = "Debes identificar el patrón lógico y seleccionar la respuesta correcta";
+"instruction_3" = "La dificultad aumenta progresivamente";
+"instruction_4" = "Al final obtienes una estimación de tu coeficiente intelectual";
+
+// MARK: - Pattern Descriptions
+"pattern_sequences_desc" = "Figuras que siguen un orden específico";
+"pattern_rotations_desc" = "Elementos que giran en diferentes direcciones";
+"pattern_matrices_desc" = "Patrones en filas y columnas";
+"pattern_combinations_desc" = "Reglas de suma y resta de elementos";
+
+// MARK: - Statistics
+"answer_distribution" = "Distribución de Respuestas";
+"correct_label" = "Correctas: %d";
+"incorrect_label" = "Incorrectas: %d";
+"answers_by_question" = "Respuestas por Pregunta";
+
+// MARK: - Errors and Loading
+"loading_test" = "Cargando test...";
+"test_error" = "Error al cargar el test";
+"retry" = "Reintentar"; 
