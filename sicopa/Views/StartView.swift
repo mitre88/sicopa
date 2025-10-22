@@ -1,9 +1,12 @@
 import SwiftUI
 
 struct StartView: View {
+    @EnvironmentObject var firebaseManager: FirebaseManager
     @State private var animate = false
     @State private var showingHero = false
     @State private var showingContent = false
+    @State private var showingLogoutError = false
+    @State private var logoutErrorMessage = ""
     @AppStorage("isDarkMode") private var isDarkMode = false
     
     var body: some View {
@@ -28,6 +31,7 @@ struct StartView: View {
                             subtitle
                             primaryCTA
                             appearanceToggle
+                            logoutButton
                         }
                         .transition(.liquidSlide)
                     }
@@ -176,6 +180,47 @@ struct StartView: View {
         .frame(maxWidth: 320)
         .onChange(of: isDarkMode) { _ in
             HapticManager.selection()
+        }
+    }
+    
+    // MARK: - Botón de logout
+    private var logoutButton: some View {
+        Button(action: performLogout) {
+            HStack(spacing: 8) {
+                Image(systemName: "rectangle.portrait.and.arrow.right")
+                    .font(.system(size: 16, weight: .medium))
+                Text("Cerrar Sesión")
+                    .font(.system(size: 16, weight: .medium))
+            }
+            .foregroundStyle(.secondary)
+            .padding(.horizontal, 16)
+            .padding(.vertical, 12)
+            .liquidGlass(cornerRadius: 12, intensity: 0.6)
+        }
+        .alert("Error al cerrar sesión", isPresented: $showingLogoutError) {
+            Button("OK") { }
+        } message: {
+            Text(logoutErrorMessage)
+        }
+    }
+
+    // MARK: - Logout Function
+
+    private func performLogout() {
+        HapticManager.impact(.light)
+
+        do {
+            try firebaseManager.signOut()
+
+            // Haptic de éxito
+            HapticManager.notification(.success)
+        } catch {
+            // Error al cerrar sesión
+            logoutErrorMessage = "No se pudo cerrar la sesión. Inténtalo de nuevo."
+            showingLogoutError = true
+
+            // Haptic de error
+            HapticManager.notification(.error)
         }
     }
 }

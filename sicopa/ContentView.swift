@@ -6,6 +6,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var appearanceManager: AppearanceManager
+    @EnvironmentObject var supabaseManager: SupabaseManager
     @AppStorage("isDarkMode") private var isDarkMode = false
     @State private var showSplash = true
     
@@ -19,16 +20,26 @@ struct ContentView: View {
                         removal: .scale(scale: 0.8).combined(with: .opacity)
                     ))
             } else {
-                // Vista principal
-                StartView()
-                    .preferredColorScheme(isDarkMode ? .dark : .light)
-                    .transition(.asymmetric(
-                        insertion: .scale(scale: 1.1).combined(with: .opacity),
-                        removal: .opacity
-                    ))
+                // Vista según estado de autenticación de Supabase
+                if supabaseManager.isAuthenticated {
+                    StartView()
+                        .preferredColorScheme(isDarkMode ? .dark : .light)
+                        .transition(.asymmetric(
+                            insertion: .scale(scale: 1.1).combined(with: .opacity),
+                            removal: .opacity
+                        ))
+                } else {
+                    LoginView()
+                        .preferredColorScheme(isDarkMode ? .dark : .light)
+                        .transition(.asymmetric(
+                            insertion: .scale(scale: 1.1).combined(with: .opacity),
+                            removal: .opacity
+                        ))
+                }
             }
         }
         .animation(FluidAnimation.morphing, value: showSplash)
+        .animation(FluidAnimation.morphing, value: supabaseManager.isAuthenticated)
         .onAppear {
             // Mostrar splash por 1.5 segundos
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {

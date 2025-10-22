@@ -10,7 +10,8 @@ import SwiftUI
 @main
 struct sicopaApp: App {
     @StateObject private var appearanceManager = AppearanceManager()
-    
+    @StateObject private var supabaseManager = SupabaseManager.shared
+
     init() {
         // Configuración global de la app
         setupAppearance()
@@ -21,6 +22,7 @@ struct sicopaApp: App {
             ContentView()
                 .font(.custom("SF Pro Display", size: 17)) // San Francisco Pro globalmente [[memory:2881685]]
                 .environmentObject(appearanceManager)
+                .environmentObject(supabaseManager)
                 .onAppear {
                     // Configuración inicial de la app
                     configureInitialState()
