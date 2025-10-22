@@ -164,28 +164,27 @@ final class SupabaseManager: ObservableObject {
             throw SupabaseError.userNotAuthenticated
         }
 
-        // Crear estructura para insertar en la base de datos
-        let recordData: [String: Any] = [
-            "user_id": userId.uuidString,
-            "plaza": record.plaza,
-            "grupo": record.grupo,
-            "rfc": record.rfc,
-            "nombre": record.nombre,
-            "liquido": record.liquido,
-            "cct": record.cct,
-            "cheque": record.cheque,
-            "puesto_cdc": record.puesto_cdc,
-            "desde_pag": record.desde_pag,
-            "hasta_pag": record.hasta_pag,
-            "motivo": record.motivo,
-            "conceptos": record.conceptos,
-            "importes": record.importes,
-            "created_at": ISO8601DateFormatter().string(from: Date())
-        ]
+        // Crear DTO para insertar en la base de datos
+        let recordInsert = PayrollRecordInsert(
+            user_id: userId.uuidString,
+            plaza: record.plaza,
+            grupo: record.grupo,
+            rfc: record.rfc,
+            nombre: record.nombre,
+            liquido: record.liquido,
+            cct: record.cct,
+            cheque: record.cheque,
+            puesto_cdc: record.puesto_cdc,
+            desde_pag: record.desde_pag,
+            hasta_pag: record.hasta_pag,
+            motivo: record.motivo,
+            conceptos: record.conceptos,
+            importes: record.importes
+        )
 
         try await client.database
             .from("payroll_records")
-            .insert(recordData)
+            .insert(recordInsert)
             .execute()
     }
 
@@ -314,4 +313,22 @@ struct PayrollRecordDTO: Codable {
             importes: importes
         )
     }
+}
+
+/// DTO para insertar datos en Supabase
+struct PayrollRecordInsert: Codable {
+    let user_id: String
+    let plaza: String
+    let grupo: String
+    let rfc: String
+    let nombre: String
+    let liquido: Double
+    let cct: String
+    let cheque: String
+    let puesto_cdc: String
+    let desde_pag: String
+    let hasta_pag: String
+    let motivo: String
+    let conceptos: [String]
+    let importes: [Double]
 }
